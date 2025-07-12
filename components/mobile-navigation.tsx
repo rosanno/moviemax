@@ -34,7 +34,7 @@ export default function MobileNavigation() {
     useState(false);
 
   return (
-    <div className="fixed bottom-2 z-50 mx-4 w-[calc(100%-32px)] md:hidden flex items-center gap-1.5">
+    <div className="fixed bottom-2 z-50 mx-4 w-[calc(100%-32px)] h-14 md:hidden flex items-center gap-1.5">
       {/* Navigation links */}
       <div
         className={`rounded-full backdrop-blur-lg bg-black/40 border-t border-white/10 transition-all duration-300 overflow-hidden ${
