@@ -33,3 +33,13 @@ export type GenresType = {
 export type GenresResponseType = {
   genres: GenresType[];
 };
+
+export type LogosResponseType = {
+  aspect_ratio: number;
+  file_path: string;
+  heightL: number;
+  iso_639_1: string;
+  vote_average: number;
+  vote_count: number;
+  width: number;
+};
