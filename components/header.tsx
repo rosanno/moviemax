@@ -27,13 +27,13 @@ export default function Header() {
     <>
       <MobileNavigation />
       <div
-        className={`fixed z-[999] inset-x-0 h-14 md:h-20 md:px-6 transition-all duration-300 flex items-center ${
+        className={`fixed z-[999] inset-x-0 h-14 md:h-20 transition-all duration-300 flex items-center ${
           scrolled
             ? "bg-black/40 backdrop-blur-lg"
             : "bg-transparent"
         }`}
       >
-        <div className="w-full md:max-w-6xl 2xl:max-w-[1800px] mx-auto`">
+        <div className="w-full md:max-w-6xl 2xl:max-w-[1800px] mx-auto md:px-6">
           <div className="flex items-center justify-between px-3 w-full gap-4">
             <div className="flex items-center gap-4">
               <Link

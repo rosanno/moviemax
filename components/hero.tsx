@@ -32,7 +32,7 @@ export default function Hero() {
       </div>
 
       {/* Dot indicators */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+      <div className="absolute bottom-0 2xl:bottom-36 left-1/2 transform -translate-x-1/2 flex space-x-2">
         {nowPlaying?.map((_: any, index: number) => (
           <button
             key={index}
