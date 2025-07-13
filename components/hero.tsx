@@ -38,7 +38,7 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-l from-[#0a0a0a] to-transparent"></div>
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0a0a]"></div>
             <div className="w-full md:max-w-6xl md:px-10 2xl:max-w-[1800px] mx-auto">
-              <div className="absolute bottom-10 md:bottom-52 pl-3 md:pl-0 pr-4 w-sm md:w-xl 2xl:w-2xl">
+              <div className="absolute bottom-10 md:bottom-44 pl-3 md:pl-0 pr-4 w-sm md:w-xl 2xl:w-2xl">
                 <h1 className="text-4xl md:text-5xl 2xl:text-[80px] font-cinzel font-bold text-white mb-1">
                   {movie.title}
                 </h1>
@@ -50,12 +50,12 @@ export default function Hero() {
                         .filter(Boolean)
                         .join(", ")}
                 </p>
-                <p className="text-white text-sm md:text-base leading-6 md:leading-7 tracking-wide pr-2">
-                  {movie.overview.length > 100
-                    ? movie.overview.slice(0, 200) + "..."
-                    : movie.overview}
-                </p>
-                <div className="mt-3">
+                <div className="h-16 md:h-full overflow-y-scroll scrollbar">
+                  <p className="text-white text-sm md:text-base leading-6 md:leading-7 tracking-wide pr-2">
+                    {movie.overview}
+                  </p>
+                </div>
+                <div className="mt-5">
                   <button className="border border-green-400 text-xs md:text-base px-3 py-1.5 md:py-2 rounded-full flex items-center gap-x-1">
                     <Play className="size-4 md:size-5" />{" "}
                     Watch Now
