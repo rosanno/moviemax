@@ -52,7 +52,7 @@ export default function SlideItem({
       <div className="absolute inset-0 bg-gradient-to-l from-[#0a0a0a] to-transparent"></div>
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0a0a]"></div>
       <div className="w-full md:max-w-6xl md:px-10 2xl:max-w-[1800px] mx-auto">
-        <div className="absolute bottom-10 sm:bottom-10 2xl:bottom-44 pl-3 md:pl-0 pr-4 w-sm md:w-xl lg:w-lg 2xl:w-3xl">
+        <div className="absolute bottom-10 sm:bottom-10 2xl:bottom-48 pl-3 md:pl-0 pr-4 w-sm md:w-xl lg:w-lg 2xl:w-3xl">
           {/* <h1 className="text-4xl md:text-5xl 2xl:text-[80px] font-cinzel font-bold text-white mb-1">
             {movie.title}
           </h1> */}
@@ -65,7 +65,7 @@ export default function SlideItem({
               }}
             />
           )}
-          <p className="text-white text-sm md:text-base font-cinzel mb-2 md:mb-3 italic">
+          <p className="text-white text-sm md:text-base font-cinzel mb-2 md:mb-3 mt-4 italic">
             {isLoading
               ? "Loading genres..."
               : genres
