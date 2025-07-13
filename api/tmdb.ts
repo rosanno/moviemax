@@ -11,7 +11,7 @@ export const fetchNowPlaying = async () => {
 
 export const fetchGenre = async () => {
   const res = await axiosInstance.get(
-    "https://api.themoviedb.org/3/genre/movie/list?language=en-US"
+    "/genre/movie/list?language=en-US"
   );
   if (res.status !== 200)
     throw new Error("Something went wrong.");
@@ -25,4 +25,11 @@ export const fetchPapular = async () => {
   if (res.status !== 200)
     throw new Error("Something went wrong.");
   return res.data;
+};
+
+export const fetchLogo = async (id: number) => {
+  const res = await axiosInstance.get(`movie/${id}/images`);
+  if (res.status !== 200)
+    throw new Error("Something went wrong.");
+  return res.data.logos;
 };
