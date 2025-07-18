@@ -3,10 +3,9 @@ import React from "react";
 import { Play } from "lucide-react";
 import { useMediaQuery } from "react-responsive";
 
-import { useGenre } from "@/hooks/use-genre";
-
-import { MovieType } from "@/types/type";
+import { useFilteredGenres } from "@/hooks/use-filtered";
 import { useLogo } from "@/hooks/use-logo";
+import { MovieType } from "@/types/type";
 
 type SliderProps = {
   movie: MovieType;
@@ -17,7 +16,7 @@ export default function SlideItem({
   movie,
   currentSlide,
 }: SliderProps) {
-  const { data: genres, isLoading } = useGenre(
+  const { filtered, isLoading } = useFilteredGenres(
     movie.genre_ids
   );
   const { data: logo } = useLogo(movie.id);
@@ -68,8 +67,8 @@ export default function SlideItem({
           <p className="text-white text-sm md:text-base font-cinzel mb-2 md:mb-3 mt-4 italic">
             {isLoading
               ? "Loading genres..."
-              : genres
-              ? Object.values(genres).join(", ")
+              : filtered && Object.keys(filtered).length > 0
+              ? Object.values(filtered).join(", ")
               : "No genres available"}
           </p>
           <div className="h-16 sm:h-20 2xl:h-full overflow-y-scroll scrollbar">
