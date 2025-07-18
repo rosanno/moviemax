@@ -1,17 +1,24 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchGenre } from "@/api/tmdb";
-import { GenresType } from "@/types/type";
+import {
+  GenresResponseType,
+  GenresType,
+} from "@/types/type";
 
 export const useGenre = () => {
-  return useQuery({
+  return useQuery<GenresResponseType>({
     queryKey: ["genre"],
     queryFn: async () => {
       const { genres } = await fetchGenre();
 
-      // Convert to map: { [id]: name }
-      return Object.fromEntries(
+      const genreMap = Object.fromEntries(
         genres.map((g: GenresType) => [g.id, g.name])
       );
+
+      return {
+        genres, // full array: GenresType[]
+        map: genreMap, // quick lookup: Record<number, string>
+      };
     },
     refetchOnWindowFocus: false,
   });

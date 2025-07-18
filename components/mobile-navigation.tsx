@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import {
   Clapperboard,
+  Heart,
   Home,
   LucideIcon,
   Search,
   Tv,
+  User,
   X,
 } from "lucide-react";
 import Link from "next/link";
@@ -22,9 +24,19 @@ export const mobileNavigation = [
     icon: Clapperboard,
   },
   {
-    label: "TV show",
+    label: "TV Shows",
     href: "/tv-show",
     icon: Tv,
+  },
+  {
+    label: "Favorites",
+    href: "/favorites",
+    icon: Heart,
+  },
+  {
+    label: "Account",
+    href: "/account",
+    icon: User,
   },
 ];
 
@@ -59,8 +71,8 @@ export default function MobileNavigation() {
                       : "text-white"
                   } transition duration-300`}
                 >
-                  <Icon className="size-5" />
-                  <span className="text-xs">
+                  <Icon className="size-4" />
+                  <span className="text-[10px] sm:text-[11px]">
                     {item.label}
                   </span>
                 </div>

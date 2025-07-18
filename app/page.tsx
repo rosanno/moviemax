@@ -3,10 +3,10 @@
 import React from "react";
 
 import { usePopular } from "@/hooks/use-popular";
+import { useNowPlaying } from "@/hooks/use-now-playing";
 
 import Hero from "@/components/hero";
 import Movies from "@/components/ui/movies";
-import { useNowPlaying } from "@/hooks/use-now-playing";
 
 export default function Page() {
   const { data: { results } = {} } = usePopular();
