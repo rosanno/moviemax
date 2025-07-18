@@ -32,14 +32,14 @@ export default function Hero() {
       </div>
 
       {/* Dot indicators */}
-      <div className="absolute bottom-0 2xl:bottom-36 left-1/2 transform -translate-x-1/2 flex space-x-2">
+      <div className="absolute -bottom-6 2xl:bottom-36 left-1/2 transform -translate-x-1/2 flex items-center md:hidden space-x-2">
         {nowPlaying?.map((_: any, index: number) => (
           <button
             key={index}
-            className={`w-2 h-2 rounded-full transition-colors duration-300 ${
+            className={`h-2 rounded-full transition-colors duration-300 ${
               currentSlide === index
-                ? "bg-white"
-                : "bg-white/50"
+                ? "bg-white w-6"
+                : "bg-white/50 w-2"
             }`}
             onClick={() => setCurrentSlide(index)}
           />

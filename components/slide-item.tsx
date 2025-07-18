@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import { Play } from "lucide-react";
 import { useMediaQuery } from "react-responsive";
 
-import { useFilteredGenres } from "@/hooks/use-filtered";
 import { useLogo } from "@/hooks/use-logo";
 import { MovieType } from "@/types/type";
+import Button from "./ui/button";
+import { Play, PlusCircle } from "lucide-react";
 
 type SliderProps = {
   movie: MovieType;
@@ -16,27 +16,33 @@ export default function SlideItem({
   movie,
   currentSlide,
 }: SliderProps) {
-  const { filtered, isLoading } = useFilteredGenres(
-    movie.genre_ids
-  );
   const { data: logo } = useLogo(movie.id);
 
   const isBigScreen = useMediaQuery({
     query: "(min-width: 1824px)",
   });
   const isMediumScreen = useMediaQuery({
-    query: "(min-width: 1536px)",
+    query: "(min-width: 768px)",
+  });
+  const isSmallScreen = useMediaQuery({
+    query: "(min-width: 640px)",
   });
 
   const size = isBigScreen
     ? "original"
-    : isMediumScreen
+    : isMediumScreen || isSmallScreen
     ? "w500"
     : "w300";
 
+  const overviewText = isBigScreen
+    ? movie.overview
+    : isMediumScreen
+    ? movie.overview.slice(0, 200) + "..."
+    : movie.overview.slice(0, 120) + "...";
+
   return (
     <div
-      className="relative min-w-full min-h-[70vh] transition-transform duration-500"
+      className="relative min-w-full h-[35vh] sm:h-[60vh] md:h-[70vh] 2xl:h-[85vh] transition-transform duration-500"
       style={{
         transform: `translateX(-${currentSlide * 100}%)`,
       }}
@@ -46,12 +52,9 @@ export default function SlideItem({
         alt={movie.title}
         className="w-full h-full object-cover"
       />
-      {/* Add gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] to-transparent"></div>
-      <div className="absolute inset-0 bg-gradient-to-l from-[#0a0a0a] to-transparent"></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0a0a]"></div>
-      <div className="w-full md:max-w-6xl md:px-10 2xl:max-w-[1800px] mx-auto">
-        <div className="absolute bottom-10 sm:bottom-10 2xl:bottom-48 pl-3 md:pl-0 pr-4 w-sm md:w-xl lg:w-lg 2xl:w-3xl">
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent" />
+      <div className="w-full md:max-w-6xl 2xl:max-w-[1440px] mx-auto">
+        <div className="absolute bottom-10 sm:bottom-1/2 sm:translate-y-1/2 px-3 sm:w-lg md:w-xl 2xl:w-2xl 2xl:px-0">
           {/* <h1 className="text-4xl md:text-5xl 2xl:text-[80px] font-cinzel font-bold text-white mb-1">
             {movie.title}
           </h1> */}
@@ -59,33 +62,32 @@ export default function SlideItem({
             <img
               src={`https://image.tmdb.org/t/p/${size}${logo.file_path}`}
               alt="Movie Logo"
+              className="w-44 sm:w-auto"
               style={{
                 aspectRatio: `${logo.aspect_ratio}`,
               }}
             />
           )}
-          <p className="text-white text-sm md:text-base font-cinzel mb-2 md:mb-3 mt-4 italic">
-            {isLoading
-              ? "Loading genres..."
-              : filtered && Object.keys(filtered).length > 0
-              ? Object.values(filtered).join(", ")
-              : "No genres available"}
-          </p>
-          <div className="h-16 sm:h-20 2xl:h-full overflow-y-scroll scrollbar">
-            <p className="text-white text-sm md:text-base leading-6 md:leading-7 tracking-wide pr-2">
-              {movie.overview}
+          <div className="pt-2">
+            <p className="text-white leading-5 text-xs sm:text-base sm:leading-7 tracking-wide pr-8 md:pr-0">
+              {overviewText}
             </p>
           </div>
-          <div className="mt-5">
-            <button className="relative inline-flex items-center gap-x-1 px-3 py-1.5 md:py-2 md:px-6 text-xs md:text-base rounded-full overflow-hidden group">
-              <span className="absolute inset-0 bg-white/30 backdrop-blur-sm"></span>
-              <span className="absolute inset-0 bg-gradient-to-r from-white/50 to-white/30 group-hover:opacity-0 transition-opacity duration-300"></span>
-              <span className="absolute inset-0 border border-white/50 rounded-full"></span>
-              <Play className="relative size-4 md:size-5 text-white" />
-              <span className="relative text-white">
-                Watch Now
-              </span>
-            </button>
+          <div className="mt-3 flex items-center gap-2">
+            <Button
+              variant="outline"
+              className="text-xs sm:text-sm md:text-base py-1.5 sm:py-2"
+            >
+              <PlusCircle className="size-4" />
+              Add To Watch List
+            </Button>
+            <Button
+              variant="primary"
+              className="text-xs sm:text-sm md:text-base py-1.5 sm:py-2"
+            >
+              <Play className="size-4" />
+              Watch Now
+            </Button>
           </div>
         </div>
       </div>
