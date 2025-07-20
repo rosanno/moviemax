@@ -13,8 +13,8 @@ export default function Page() {
   const { data: { results: nowPlaying } = {} } =
     useNowPlaying();
 
-  const popular = results?.slice(0, 8);
-  const latest = nowPlaying?.slice(0, 8);
+  const popular = results?.slice(0, 6);
+  const latest = nowPlaying?.slice(0, 6);
 
   return (
     <>

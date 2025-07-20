@@ -42,7 +42,7 @@ export default function SlideItem({
 
   return (
     <div
-      className="relative min-w-full h-[35vh] sm:h-[60vh] md:h-[70vh] 2xl:h-[85vh] transition-transform duration-500"
+      className="relative min-w-full h-[45vh] sm:h-[60vh] md:h-[70vh] 2xl:h-[85vh] transition-transform duration-500"
       style={{
         transform: `translateX(-${currentSlide * 100}%)`,
       }}
@@ -54,7 +54,7 @@ export default function SlideItem({
       />
       <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent" />
       <div className="custom-container">
-        <div className="absolute bottom-10 sm:bottom-1/2 sm:translate-y-1/2 px-3 sm:w-lg md:w-xl 2xl:w-2xl 2xl:px-0">
+        <div className="absolute bottom-1/2 translate-y-1/2 sm:bottom-1/2 sm:translate-y-1/2 px-3 sm:w-lg md:w-xl 2xl:w-2xl 2xl:px-0">
           {/* <h1 className="text-4xl md:text-5xl 2xl:text-[80px] font-cinzel font-bold text-white mb-1">
             {movie.title}
           </h1> */}
