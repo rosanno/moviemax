@@ -26,3 +26,9 @@ body {
   color: var(--foreground);
   font-family: var(--font-roboto);
 }
+
+@layer components {
+  .custom-container {
+    @apply w-full md:max-w-6xl lg:max-w-[1440px] 2xl:max-w-[1800px] px-2.5 md:px-8 mx-auto
+  }
+}

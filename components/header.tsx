@@ -27,13 +27,13 @@ export default function Header() {
     <>
       <MobileNavigation />
       <div
-        className={`w-full h-16 md:h-24 transition-all duration-300 flex items-center ${
+        className={`w-full h-16 md:h-24 flex items-center transition-all duration-500 ease-in-out ${
           scrolled
-            ? "bg-black/40 backdrop-blur-lg"
-            : "bg-transparent"
+            ? "fixed top-0 z-50 bg-black/40 backdrop-blur-lg opacity-100"
+            : "relative bg-transparent backdrop-blur-0 opacity-100"
         }`}
       >
-        <div className="w-full md:max-w-6xl 2xl:max-w-[1440px] mx-auto">
+        <div className="custom-container">
           <div className="flex items-center justify-between w-full gap-4">
             <div className="flex items-center gap-8 px-3 2xl:px-0">
               <Link
@@ -80,15 +80,12 @@ export default function Header() {
                 const Icon = item.icon;
 
                 return (
-                  <>
+                  <div key={item.href}>
                     {(item.label === "Favorites" ||
                       item.label === "Account") && (
-                      <Icon
-                        key={item.href}
-                        className="size-5"
-                      />
+                      <Icon className="size-5" />
                     )}
-                  </>
+                  </div>
                 );
               })}
             </div>

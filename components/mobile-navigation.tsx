@@ -6,7 +6,7 @@ import {
   LucideIcon,
   Search,
   Tv,
-  User,
+  UserCircle,
   X,
 } from "lucide-react";
 import Link from "next/link";
@@ -36,7 +36,7 @@ export const mobileNavigation = [
   {
     label: "Account",
     href: "/account",
-    icon: User,
+    icon: UserCircle,
   },
 ];
 
