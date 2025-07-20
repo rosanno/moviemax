@@ -53,7 +53,7 @@ export default function SlideItem({
         className="w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent" />
-      <div className="w-full md:max-w-6xl 2xl:max-w-[1440px] mx-auto">
+      <div className="custom-container">
         <div className="absolute bottom-10 sm:bottom-1/2 sm:translate-y-1/2 px-3 sm:w-lg md:w-xl 2xl:w-2xl 2xl:px-0">
           {/* <h1 className="text-4xl md:text-5xl 2xl:text-[80px] font-cinzel font-bold text-white mb-1">
             {movie.title}
@@ -68,12 +68,12 @@ export default function SlideItem({
               }}
             />
           )}
-          <div className="pt-2">
+          <div className="pt-2 2xl:pt-4">
             <p className="text-white leading-5 text-xs sm:text-base sm:leading-7 tracking-wide pr-8 md:pr-0">
               {overviewText}
             </p>
           </div>
-          <div className="mt-3 flex items-center gap-2">
+          <div className="mt-3 2xl:mt-6 flex items-center gap-4">
             <Button
               variant="outline"
               className="text-xs sm:text-sm md:text-base py-1.5 sm:py-2"
