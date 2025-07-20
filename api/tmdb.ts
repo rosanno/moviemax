@@ -2,7 +2,7 @@ import { axiosInstance } from "@/utils/axios-instance";
 
 export const fetchNowPlaying = async () => {
   const res = await axiosInstance.get(
-    "movie/now_playing?language=en-US&page=1"
+    "movie/now_playing?language=en-US&page=1&include_adult=false"
   );
   if (res.status !== 200)
     throw new Error("Something went wrong.");

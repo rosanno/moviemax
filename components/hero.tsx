@@ -34,12 +34,11 @@ export default function Hero() {
   return (
     <div className="relative">
       <div className="flex overflow-hidden">
-        {nowPlaying?.map((movie, index) => (
+        {nowPlaying?.map((movie) => (
           <SlideItem
             key={movie.id}
             movie={movie}
             currentSlide={currentSlide}
-            index={index}
           />
         ))}
       </div>
