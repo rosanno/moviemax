@@ -4,7 +4,6 @@ import { Cinzel, Roboto } from "next/font/google";
 import QueryProvider from "@/providers/query-provider";
 
 import Header from "@/components/header";
-
 import "./globals.css";
 
 const cinzel = Cinzel({

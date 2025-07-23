@@ -44,7 +44,7 @@ export default function Hero() {
       </div>
 
       {/* Dot indicators */}
-      <div className="absolute -bottom-6 md:-bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-2">
+      <div className="absolute -bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-2">
         {nowPlaying?.map((_: any, index: number) => (
           <button
             key={index}
