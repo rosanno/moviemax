@@ -18,52 +18,50 @@ export default function Movies({
   movies,
 }: MoviesProps) {
   return (
-    <div className="px-3 md:px-10 w-full md:max-w-6xl 2xl:max-w-[1800px] mx-auto">
-      <div>
-        <div className="mt-10 flex items-center justify-between">
-          <h2 className="text-lg md:text-2xl font-semibold">
-            {heading}
-          </h2>
-          <Link href="/" className="text-sm">
-            See All
-          </Link>
-        </div>
-        <Swiper
-          modules={[FreeMode]}
-          freeMode={true}
-          grabCursor={true}
-          spaceBetween={8}
-          slidesPerView={3}
-          breakpoints={{
-            640: {
-              slidesPerView: 3,
-              spaceBetween: 8,
-            },
-            768: {
-              slidesPerView: 4,
-              spaceBetween: 10,
-            },
-            1024: {
-              slidesPerView: 5,
-              spaceBetween: 15,
-            },
-            1536: {
-              slidesPerView: 6,
-              spaceBetween: 20,
-            },
-          }}
-          className="mt-5"
-        >
-          {movies?.map((movie) => (
-            <SwiperSlide
-              key={movie.id}
-              className="w-[150px] md:w-[200px] lg:w-[250px]"
-            >
-              <Movie movie={movie} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+    <div className="custom-container mt-16">
+      <div className="mt-10 flex items-center justify-between">
+        <h2 className="text-lg md:text-2xl font-semibold">
+          {heading}
+        </h2>
+        <Link href="/" className="text-sm">
+          See All
+        </Link>
       </div>
+      <Swiper
+        modules={[FreeMode]}
+        freeMode={true}
+        grabCursor={true}
+        spaceBetween={8}
+        slidesPerView={3}
+        breakpoints={{
+          640: {
+            slidesPerView: 3,
+            spaceBetween: 8,
+          },
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 10,
+          },
+          1024: {
+            slidesPerView: 5,
+            spaceBetween: 15,
+          },
+          1536: {
+            slidesPerView: 6,
+            spaceBetween: 20,
+          },
+        }}
+        className="mt-5"
+      >
+        {movies?.map((movie) => (
+          <SwiperSlide
+            key={movie.id}
+            className="w-[150px] md:w-[200px] lg:w-[250px]"
+          >
+            <Movie movie={movie} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 }

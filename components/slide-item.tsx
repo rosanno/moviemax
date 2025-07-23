@@ -1,11 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { useMediaQuery } from "react-responsive";
+import { Play, PlusCircle } from "lucide-react";
 
 import { useLogo } from "@/hooks/use-logo";
 import { MovieType } from "@/types/type";
-import Button from "./ui/button";
-import { Play, PlusCircle } from "lucide-react";
+
+import Button from "@/components/ui/button";
 
 type SliderProps = {
   movie: MovieType;
@@ -35,14 +36,14 @@ export default function SlideItem({
     : "w300";
 
   const overviewText = isBigScreen
-    ? movie.overview
+    ? movie.overview.slice(0, 300) + "..."
     : isMediumScreen
     ? movie.overview.slice(0, 200) + "..."
     : movie.overview.slice(0, 120) + "...";
 
   return (
     <div
-      className="relative min-w-full h-[45vh] sm:h-[60vh] md:h-[70vh] 2xl:h-[85vh] transition-transform duration-500"
+      className="relative min-w-full h-[45vh] sm:h-[60vh] md:h-[70vh] 2xl:h-screen transition-transform duration-500"
       style={{
         transform: `translateX(-${currentSlide * 100}%)`,
       }}
@@ -54,7 +55,7 @@ export default function SlideItem({
       />
       <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent" />
       <div className="custom-container">
-        <div className="absolute bottom-1/2 translate-y-1/2 sm:bottom-1/2 sm:translate-y-1/2 px-3 sm:w-lg md:w-xl 2xl:w-2xl 2xl:px-0">
+        <div className="absolute bottom-6 sm:bottom-1/2 sm:translate-y-1/2 px-2.5 sm:w-lg md:w-xl 2xl:w-2xl 2xl:px-0">
           {/* <h1 className="text-4xl md:text-5xl 2xl:text-[80px] font-cinzel font-bold text-white mb-1">
             {movie.title}
           </h1> */}
